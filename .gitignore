@@ -1,0 +1,34 @@
+# Maven
+target/
+*.class
+*.jar
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Serenity reports (not needed in source control)
+serenity-reports/
+
+# Maven wrapper jar
+.mvn/wrapper/maven-wrapper.jar
