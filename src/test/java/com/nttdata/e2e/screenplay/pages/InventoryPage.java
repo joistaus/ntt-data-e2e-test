@@ -15,4 +15,7 @@ public class InventoryPage {
 
     public static final Target CART_LINK =
             Target.the("shopping cart link").locatedBy("#shopping_cart_container .shopping_cart_link");
+
+    public static final Target CART_BADGE =
+            Target.the("cart item count badge").locatedBy(".shopping_cart_badge");
 }
