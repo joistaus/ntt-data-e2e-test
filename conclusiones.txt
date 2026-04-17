@@ -1,0 +1,31 @@
+CONCLUSIONES
+============
+
+Trabajar con ScreenPlay representó un cambio de mentalidad frente al ya conocido Page Object Model.
+Mientras que POM organiza el código en torno a las páginas de la aplicación, ScreenPlay lo organiza en torno a
+las acciones del usuario, lo que resulta en una mayor separación de responsabilidades
+y en tests más legibles. Sin embargo, ambos patrones son válidos: POM es más sencillo
+de adoptar y suficiente para proyectos de menor complejidad, mientras que ScreenPlay
+escala mejor cuando los flujos son extensos o cuando múltiples actores interactúan
+en el mismo test. La elección entre uno y otro depende de las necesidades y
+requerimientos del proyecto.
+
+En cuanto a las herramientas de pruebas end-to-end, los conceptos fundamentales son
+comunes a todas: definición de escenarios en lenguaje natural, interacción con el
+navegador a través de un driver, y verificación del resultado esperado. Lo que varía
+entre frameworks como Cypress, Playwright o SerenityBDD es únicamente la sintaxis y
+la forma de ejecución. Quien domina los conceptos puede adaptarse a cualquier
+herramienta con relativa facilidad.
+
+
+MEJORAS FUTURAS
+---------------
+
+1. Agregar escenarios negativos: login con credenciales inválidas, usuario bloqueado,
+   campos vacíos, entre otros.
+
+2. Verificar el contenido del carrito: validar que los productos seleccionados
+   aleatoriamente coincidan con los que aparecen en la página del carrito.
+
+3. Implementar ejecución en paralelo para reducir el tiempo total de ejecución
+   cuando se agreguen más escenarios.
