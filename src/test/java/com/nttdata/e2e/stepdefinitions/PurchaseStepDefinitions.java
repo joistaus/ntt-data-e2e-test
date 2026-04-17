@@ -2,29 +2,36 @@ package com.nttdata.e2e.stepdefinitions;
 
 import com.nttdata.e2e.screenplay.model.BuyerInfo;
 import com.nttdata.e2e.screenplay.model.User;
-import com.nttdata.e2e.screenplay.pages.CartPage;
 import com.nttdata.e2e.screenplay.questions.ConfirmationMessage;
 import com.nttdata.e2e.screenplay.tasks.AddProductToCart;
 import com.nttdata.e2e.screenplay.tasks.CompletePurchase;
 import com.nttdata.e2e.screenplay.tasks.FillCheckoutForm;
 import com.nttdata.e2e.screenplay.tasks.Login;
+import com.nttdata.e2e.screenplay.tasks.ProceedToCheckout;
 import com.nttdata.e2e.screenplay.tasks.ViewCart;
 import com.nttdata.e2e.testdata.TestDataLoader;
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.serenitybdd.screenplay.ensure.Ensure;
 
 public class PurchaseStepDefinitions {
 
+    private static final String ORDER_CONFIRMATION_MESSAGE = "Thank you for your order!";
+
     @Before
     public void setTheStage() {
         OnStage.setTheStage(new OnlineCast());
+    }
+
+    @After
+    public void cleanStage() {
+        OnStage.drawTheCurtain();
     }
 
     @Given("the user is logged in with valid credentials")
@@ -52,7 +59,7 @@ public class PurchaseStepDefinitions {
     @And("they proceed to checkout")
     public void theyProceedToCheckout() {
         OnStage.theActorInTheSpotlight().attemptsTo(
-                Click.on(CartPage.CHECKOUT_BUTTON)
+                ProceedToCheckout.now()
         );
     }
 
@@ -75,7 +82,7 @@ public class PurchaseStepDefinitions {
     public void theOrderConfirmationMessageShouldBeDisplayed() {
         OnStage.theActorInTheSpotlight().attemptsTo(
                 Ensure.that(ConfirmationMessage.displayed())
-                        .isEqualTo("Thank you for your order!")
+                        .isEqualTo(ORDER_CONFIRMATION_MESSAGE)
         );
     }
 }
