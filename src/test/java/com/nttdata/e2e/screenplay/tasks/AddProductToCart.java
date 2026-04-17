@@ -29,8 +29,6 @@ public class AddProductToCart implements Task {
         for (String product : selected) {
             actor.attemptsTo(Click.on(InventoryPage.ADD_TO_CART_BUTTON.of(product)));
         }
-
-        actor.remember("selectedProducts", new ArrayList<>(selected));
     }
 
     public static AddProductToCart randomProducts(int quantity) {
