@@ -1,20 +1,14 @@
 package com.nttdata.e2e.screenplay.tasks;
 
 import com.nttdata.e2e.screenplay.pages.SummaryPage;
-import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 
-public class CompletePurchase implements Task {
+public class CompletePurchase {
 
-    private CompletePurchase() {}
-
-    @Override
-    public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(Click.on(SummaryPage.FINISH_BUTTON));
-    }
-
-    public static CompletePurchase order() {
-        return new CompletePurchase();
+    public static Performable order() {
+        return Task.where("{0} completes the purchase",
+                Click.on(SummaryPage.FINISH_BUTTON));
     }
 }
