@@ -7,6 +7,7 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.Open;
+import net.serenitybdd.core.environment.EnvironmentSpecificConfiguration;
 import net.serenitybdd.core.environment.WebDriverConfiguredEnvironment;
 
 public class Login implements Task {
@@ -19,7 +20,9 @@ public class Login implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        String baseUrl = WebDriverConfiguredEnvironment.getEnvironmentVariables().getProperty("webdriver.base.url");
+        String baseUrl = EnvironmentSpecificConfiguration
+                .from(WebDriverConfiguredEnvironment.getEnvironmentVariables())
+                .getProperty("webdriver.base.url");
         actor.attemptsTo(
                 Open.url(baseUrl),
                 Enter.theValue(user.getUsername()).into(LoginPage.USERNAME_FIELD),
