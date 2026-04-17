@@ -1,5 +1,4 @@
-@purchase
-Feature: Purchase flow on SauceDemo
+Feature: Purchase
 
   Scenario: Complete a purchase with valid credentials
     Given the user is logged in with valid credentials

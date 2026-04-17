@@ -10,10 +10,8 @@ import org.junit.runner.RunWith;
         glue = "com.nttdata.e2e.stepdefinitions",
         plugin = {
                 "pretty",
-                "json:target/cucumber-reports/cucumber.json",
-                "html:target/cucumber-reports/cucumber.html"
-        },
-        tags = "@purchase"
+                "json:target/cucumber-reports/cucumber.json"
+        }
 )
 public class CucumberTestRunner {
 }

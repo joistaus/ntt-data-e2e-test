@@ -10,7 +10,7 @@ Este proyecto automatiza el flujo completo de compra en [SauceDemo](https://www.
 - Agregar dos productos al carrito
 - Visualizar el carrito
 - Completar el formulario de compra (nombre, apellido, código postal)
-- Verificar el mensaje de confirmación: **"THANK YOU FOR YOUR ORDER"**
+- Verificar el mensaje de confirmación: **"Thank you for your order!"**
 
 ## Tecnologías utilizadas
 
@@ -47,19 +47,18 @@ Este comando:
 1. Limpia los artefactos anteriores (`clean`)
 2. Compila el proyecto
 3. Ejecuta todos los tests E2E en Chrome
-4. Genera los reportes de Cucumber
+4. Genera los reportes
 
 ## Reportes generados
 
 Luego de ejecutar `mvn clean verify`, los reportes se encuentran en:
 
-| Reporte                | Ubicación                                            | Descripción                              |
-| ---------------------- | ---------------------------------------------------- | ---------------------------------------- |
-| Cucumber JSON          | `target/cucumber-reports/cucumber.json`              | Datos raw del resultado                  |
-| Cucumber HTML          | `target/cucumber-reports/cucumber.html`              | Reporte HTML estándar                    |
-| Cucumber HTML mejorado | `target/cucumber-html-reports/feature-overview.html` | Reporte HTML con estadísticas detalladas |
+| Reporte       | Ubicación                               | Descripción                                        |
+| ------------- | --------------------------------------- | -------------------------------------------------- |
+| Cucumber JSON | `target/cucumber-reports/cucumber.json` | Datos raw del resultado, compatible con otras herramientas |
+| Serenity HTML | `target/site/serenity/index.html`       | Reporte visual completo con pasos, screenshots y estadísticas |
 
-Para abrir el reporte HTML mejorado, navegar a la carpeta `target/cucumber-html-reports/` y abrir el archivo `feature-overview.html` en el navegador.
+Para abrir el reporte visual, navegar a `target/site/serenity/` y abrir `index.html` en el navegador.
 
 ## Estructura del proyecto
 
@@ -69,15 +68,14 @@ src/
     ├── java/com/nttdata/e2e/
     │   ├── screenplay/
     │   │   ├── tasks/          # Tareas de alto nivel (Login, AddToCart, etc.)
-    │   │   ├── actions/        # Interacciones UI de bajo nivel
-    │   │   ├── questions/      # Clases de aserción
+    │   │   ├── questions/      # Clases de aserción (ConfirmationMessage, CartItemCount)
     │   │   ├── pages/          # Definiciones de localizadores (Targets)
-    │   │   └── model/          # Clases de dominio (User, Product, BuyerInfo)
+    │   │   └── model/          # Clases de dominio (User, BuyerInfo)
     │   ├── stepdefinitions/    # Step definitions de Cucumber
     │   ├── runners/            # Runner de JUnit + Cucumber
-    │   └── testdata/           # Utilidades para leer datos de prueba
+    │   └── testdata/           # Utilidades para leer datos de prueba desde JSON
     └── resources/
         ├── features/           # Archivos .feature de Gherkin
         ├── testdata/           # Archivos JSON con datos de prueba
-        └── serenity.conf       # Configuración de SerenityBDD
+        └── serenity.conf       # Configuración de SerenityBDD (URL base, browser, etc.)
 ```
