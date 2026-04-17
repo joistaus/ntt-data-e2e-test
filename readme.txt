@@ -26,4 +26,4 @@ Desde la raíz del proyecto:
 REPORTES
 --------
 Cucumber JSON : target/cucumber-reports/cucumber.json
-Serenity HTML : target/site/serenity/index.html
+Cucumber HTML : target/cucumber-html-reports/overview-features.html

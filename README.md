@@ -53,12 +53,12 @@ Este comando:
 
 Luego de ejecutar `mvn clean verify`, los reportes se encuentran en:
 
-| Reporte       | Ubicación                               | Descripción                                        |
-| ------------- | --------------------------------------- | -------------------------------------------------- |
-| Cucumber JSON | `target/cucumber-reports/cucumber.json` | Datos raw del resultado, compatible con otras herramientas |
-| Serenity HTML | `target/site/serenity/index.html`       | Reporte visual completo con pasos, screenshots y estadísticas |
+| Reporte       | Ubicación                                              | Descripción                                |
+| ------------- | ------------------------------------------------------ | ------------------------------------------ |
+| Cucumber JSON | `target/cucumber-reports/cucumber.json`                | Datos raw del resultado                    |
+| Cucumber HTML | `target/cucumber-html-reports/overview-features.html`  | Reporte visual con estadísticas detalladas |
 
-Para abrir el reporte visual, navegar a `target/site/serenity/` y abrir `index.html` en el navegador.
+Para abrir el reporte visual, navegar a `target/cucumber-html-reports/` y abrir `overview-features.html` en el navegador.
 
 ## Estructura del proyecto
 
